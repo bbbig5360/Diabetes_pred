@@ -22,7 +22,7 @@ def run_ml():
     input_data = input_data.reshape(1,-1)
 
 
-    if st.button('당뇨병 여부를 알고싶으시다면 클릭해주세요.'):
+    if st.button('당뇨병 예측을 원하신다면 클릭해주세요.'):
         y_pred = model.predict(input_data)
 
         if y_pred == 1:
