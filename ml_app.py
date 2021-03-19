@@ -19,7 +19,7 @@ def run_ml():
     age = st.number_input('나이를 입력하세요',0,100)    
 
     name = st.text_input('이름을 입력하세요')
-    birth_date = st.date_input('생년월일을 입력하세요')
+    customer_num = st.number_input('검진번호를 입력하세요',0)
 
     input_data = np.array([preg, Gl, BP, ST, Insul, BMI, dpf, age])
     input_data = input_data.reshape(1,-1)
@@ -47,9 +47,9 @@ def run_ml():
                 
                 cursor = connection.cursor()
                 
-                query = '''insert into user(name, birth_date, outcome) 
+                query = '''insert into user(name, customer_num, outcome) 
                             values(%s, %s, %s);'''
-                input_row = (name, birth_date, outcome)
+                input_row = (name, customer_num, outcome)
 
                 cursor.execute(query, input_row)
                 connection.commit()
